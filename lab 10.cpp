@@ -55,7 +55,6 @@ double average17(Args... args) {
 
 int main() {
     setlocale(LC_ALL, "Russian");
-    cout << "=== Variadic Templates + Fold Expressions ===\n";
     cout << "Сколько чисел ввести (1-10)? ";
 
     int n;
