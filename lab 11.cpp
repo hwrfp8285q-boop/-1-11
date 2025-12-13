@@ -81,7 +81,7 @@ constexpr auto reverse_str = [](string_view s) constexpr {
 
 int main() {
     setlocale(LC_ALL, "Russian");
-    cout << "30 constexpr-лямбд — выберите задание (1-11):\n"
+    cout << "выберите задание (1-11):\n"
     << "1. Простое число\n2. НОД\n3. НОК\n4. Фибоначчи\n"
     << "5. C(n,k)\n6. Число-палиндром\n7. sin(x)\n"
     << "8. Температура\n9. Хеш строки\n10. Палиндром строки\n"
