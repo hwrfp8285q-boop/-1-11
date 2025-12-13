@@ -25,16 +25,13 @@ class PNumber {
     }
 
 public:
-    // 1. По умолчанию
     PNumber() : base(3) { strcpy(num, "0"); cout << "Конструктор по умолчанию\n"; }
 
-    // 2. Инициализации
     PNumber(const char* s, unsigned int b = 3) : base(b) {
         if (base < 3 || base > 9) base = 3;
         strcpy(num, s); cout << "Конструктор инициализации: " << num << " (base " << base << ")\n";
     }
 
-    // 3. Копирования
     PNumber(const PNumber& p) : base(p.base) {
         strcpy(num, p.num); cout << "Конструктор копирования\n";
     }
