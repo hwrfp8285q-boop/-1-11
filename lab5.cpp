@@ -56,10 +56,10 @@ int main() {
     cout << "Ввод обычной машины:\n";
     car.input();
 
-    cout << "\nВвод грузовика:\n";
+    cout << "Ввод грузовика:\n";
     truck.input();
 
-    cout << "\n--- Результат ---\n";
+    cout << "Результат\n";
     car.show();
     truck.show();
 
