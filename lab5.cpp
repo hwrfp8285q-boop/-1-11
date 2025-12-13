@@ -50,8 +50,6 @@ public:
 };
 
 int main() {
-    cout << "Лабораторная №1:\n";
-
     Car car;
     Lorry truck;
 
