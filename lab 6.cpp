@@ -11,20 +11,21 @@ public:
     Array(int s = 5) : size(s) {
         cout << "Ввод " << size << " элементов:\n";
         for(int i = 0; i < size; i++) {
-            cout << "Элемент " << i+1 << ": ";
+            cout << "Элемент " << i + 1 << ": ";
             cin >> data[i];
         }
     }
 
     virtual void add(const Array& other) = 0;
 
-    void show() const {
-        for(int i = 0; i < size; i++) cout << data[i] << " ";
-        cout << endl;
-    }
-
     int getSize() const { return size; }
     int get(int i) const { return data[i]; }
+
+    friend ostream& operator<<(ostream& os, const Array& arr) {
+        for(int i = 0; i < arr.size; i++)
+            os << arr.data[i] << " ";
+        return os;
+    }
 };
 
 class ArraySum : public Array {
@@ -57,18 +58,18 @@ int main() {
     ArrayAND a2(4);
 
     cout << "\nИсходные массивы:\n";
-    cout << "a1: "; a1.show();
-    cout << "a2: "; a2.show();
+    cout << "a1: " << a1 << endl;
+    cout << "a2: " << a2 << endl;
 
     a1.add(a2);
-    cout << "\na1 + a2 (обычное сложение): "; a1.show();
+    cout << "\na1 + a2 (обычное сложение): " << a1 << endl;
 
     Array* p = new ArrayAND(4);
     cout << "\nЧерез указатель Array вызываем AND:\n";
     p->add(a2);
-    p->show();
+    cout << *p << endl;
 
-    
+    delete p;
     system("pause");
     return 0;
 }
