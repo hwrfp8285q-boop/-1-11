@@ -4,7 +4,11 @@
 using namespace std;
 
 template<typename T>
-bool compare(const T& a, const T& b) { return a == b; }
+int compare(const T& a, const T& b) {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+}
 
 template<typename T>
 T median(T arr[], int n) {
@@ -37,22 +41,27 @@ void quickSort(T arr[], int l, int r) {
     quickSort(arr, l, j);
     quickSort(arr, i, r);
 }
+
 template<typename T>
-void sortQuick(T arr[], int n) { quickSort(arr, 0, n-1); }
+void sortQuick(T arr[], int n) {
+    quickSort(arr, 0, n-1);
+}
 
 template<typename T>
 void sortInsert(T arr[], int n) {
     for (int i = 1; i < n; i++) {
         T key = arr[i];
         int j = i - 1;
-        while (j >= 0 && arr[j] > key) arr[j+1] = arr[j--];
+        while (j >= 0 && arr[j] > key)
+            arr[j+1] = arr[j--];
         arr[j+1] = key;
     }
 }
 
 template<typename T>
 void revers(T arr[], int n) {
-    for (int i = 0; i < n/2; i++) swap(arr[i], arr[n-1-i]);
+    for (int i = 0; i < n/2; i++)
+        swap(arr[i], arr[n-1-i]);
 }
 
 int main() {
@@ -62,26 +71,29 @@ int main() {
 
     int* arr = new int[n];
     cout << "Введи " << n << " чисел:\n";
-    for (int i = 0; i < n; i++) cin >> arr[i];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
 
     cout << "\nТвой массив: ";
-    for (int i = 0; i < n; i++) cout << arr[i] << " ";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
     cout << "\n\n";
 
     sortQuick(arr, n);
     cout << "После быстрой сортировки: ";
-    for (int i = 0; i < n; i++) cout << arr[i] << " ";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
     cout << "\n";
 
     revers(arr, n);
     cout << "После реверса: ";
-    for (int i = 0; i < n; i++) cout << arr[i] << " ";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
     cout << "\n";
 
     cout << "Медиана: " << median(arr, n) << endl;
 
     delete[] arr;
-    cout << "\nГотово! Нажми Enter...";
-    cin.ignore(); cin.get();
     return 0;
 }
+
